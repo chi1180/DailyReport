@@ -1,0 +1,1603 @@
+{
+  "categories": [
+    {
+      "data": {
+        "color": "#546E7A"
+      },
+      "id": 0,
+      "name": [
+        "Work"
+      ],
+      "rule": {
+        "regex": "Google Docs|libreoffice|ReText",
+        "type": "regex"
+      },
+      "name_pretty": "Work",
+      "subname": "Work",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#455A64"
+      },
+      "id": 1,
+      "name": [
+        "Work",
+        "Programming"
+      ],
+      "rule": {
+        "regex": "GitHub|Stack Overflow|BitBucket|Gitlab|vim|Spyder|kate|Ghidra|Scite",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming",
+      "subname": "Programming",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#00ACC1"
+      },
+      "id": 2,
+      "name": [
+        "Work",
+        "Programming",
+        "ActivityWatch"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "ActivityWatch|aw-",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>ActivityWatch",
+      "subname": "ActivityWatch",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#5C6BC0"
+      },
+      "id": 3,
+      "name": [
+        "Work",
+        "Image"
+      ],
+      "rule": {
+        "regex": "GIMP|Inkscape",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Image",
+      "subname": "Image",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#EF5350"
+      },
+      "id": 4,
+      "name": [
+        "Work",
+        "Video"
+      ],
+      "rule": {
+        "regex": "Kdenlive",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Video",
+      "subname": "Video",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#FF7043"
+      },
+      "id": 5,
+      "name": [
+        "Work",
+        "Audio"
+      ],
+      "rule": {
+        "regex": "Audacity",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Audio",
+      "subname": "Audio",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#E65100"
+      },
+      "id": 6,
+      "name": [
+        "Work",
+        "3D"
+      ],
+      "rule": {
+        "regex": "Blender",
+        "type": "regex"
+      },
+      "name_pretty": "Work>3D",
+      "subname": "3D",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#78909C"
+      },
+      "id": 7,
+      "name": [
+        "Media"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Media",
+      "subname": "Media",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#B71C1C"
+      },
+      "id": 8,
+      "name": [
+        "Media",
+        "Games"
+      ],
+      "rule": {
+        "regex": "Minecraft|RimWorld",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Games",
+      "subname": "Games",
+      "parent": [
+        "Media"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#D32F2F"
+      },
+      "id": 9,
+      "name": [
+        "Media",
+        "Video"
+      ],
+      "rule": {
+        "regex": "YouTube|Plex|VLC",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Video",
+      "subname": "Video",
+      "parent": [
+        "Media"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#F57C00"
+      },
+      "id": 10,
+      "name": [
+        "Media",
+        "Social Media"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "reddit|Facebook|Twitter|Instagram|devRant",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Social Media",
+      "subname": "Social Media",
+      "parent": [
+        "Media"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#388E3C"
+      },
+      "id": 11,
+      "name": [
+        "Media",
+        "Music"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Spotify|Deezer",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Music",
+      "subname": "Music",
+      "parent": [
+        "Media"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#0288D1"
+      },
+      "id": 12,
+      "name": [
+        "Comms"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Comms",
+      "subname": "Comms",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#7B1FA2"
+      },
+      "id": 13,
+      "name": [
+        "Comms",
+        "IM"
+      ],
+      "rule": {
+        "regex": "Messenger|Telegram|Signal|WhatsApp|Rambox|Slack|Riot|Element|Discord|Nheko|NeoChat|Mattermost",
+        "type": "regex"
+      },
+      "name_pretty": "Comms>IM",
+      "subname": "IM",
+      "parent": [
+        "Comms"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#C62828"
+      },
+      "id": 14,
+      "name": [
+        "Comms",
+        "Email"
+      ],
+      "rule": {
+        "regex": "Gmail|Thunderbird|mutt|alpine|Betterbird",
+        "type": "regex"
+      },
+      "name_pretty": "Comms>Email",
+      "subname": "Email",
+      "parent": [
+        "Comms"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#616161"
+      },
+      "id": 15,
+      "name": [
+        "Uncategorized"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Uncategorized",
+      "subname": "Uncategorized",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#37474F"
+      },
+      "id": 16,
+      "name": [
+        "Work",
+        "AI"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Work>AI",
+      "subname": "AI",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 17,
+      "name": [
+        "Work",
+        "AI",
+        "Gemini"
+      ],
+      "rule": {
+        "regex": "Gemini|gemini",
+        "type": "regex"
+      },
+      "name_pretty": "Work>AI>Gemini",
+      "subname": "Gemini",
+      "parent": [
+        "Work",
+        "AI"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#BF5A3A"
+      },
+      "id": 18,
+      "name": [
+        "Work",
+        "AI",
+        "Claude"
+      ],
+      "rule": {
+        "regex": "Claude|claude",
+        "type": "regex"
+      },
+      "name_pretty": "Work>AI>Claude",
+      "subname": "Claude",
+      "parent": [
+        "Work",
+        "AI"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#00695C"
+      },
+      "id": 19,
+      "name": [
+        "Work",
+        "AI",
+        "ChatGPT"
+      ],
+      "rule": {
+        "regex": "ChatGPT|chatgpt|gpt",
+        "type": "regex"
+      },
+      "name_pretty": "Work>AI>ChatGPT",
+      "subname": "ChatGPT",
+      "parent": [
+        "Work",
+        "AI"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#F57C00"
+      },
+      "id": 20,
+      "name": [
+        "Work",
+        "Programming",
+        "Google Colab"
+      ],
+      "rule": {
+        "regex": "Google Colab|googlecolab|google-colab|Google colab",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Google Colab",
+      "subname": "Google Colab",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#263238"
+      },
+      "id": 21,
+      "name": [
+        "Work",
+        "Programming",
+        "Zed"
+      ],
+      "rule": {
+        "regex": "Zed|zed",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Zed",
+      "subname": "Zed",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#4E342E"
+      },
+      "id": 22,
+      "name": [
+        "Work",
+        "Programming",
+        "Ghostty"
+      ],
+      "rule": {
+        "regex": "Ghostty|ghostty",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Ghostty",
+      "subname": "Ghostty",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#455A64"
+      },
+      "id": 23,
+      "name": [
+        "Work",
+        "Utility"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Work>Utility",
+      "subname": "Utility",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#B71C1C"
+      },
+      "id": 24,
+      "name": [
+        "Work",
+        "Utility",
+        "Zen"
+      ],
+      "rule": {
+        "regex": "Zen|zen|Zen browser|zen browser",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Zen",
+      "subname": "Zen",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#4A148C"
+      },
+      "id": 25,
+      "name": [
+        "Work",
+        "Utility",
+        "Obsidian"
+      ],
+      "rule": {
+        "regex": "Obsidian|obsidian",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Obsidian",
+      "subname": "Obsidian",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1B5E20"
+      },
+      "id": 26,
+      "name": [
+        "Work",
+        "Utility",
+        "LINE"
+      ],
+      "rule": {
+        "regex": "LINE|Line|line",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>LINE",
+      "subname": "LINE",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 27,
+      "name": [
+        "Work",
+        "Utility",
+        "Chrome"
+      ],
+      "rule": {
+        "regex": "Cheom|google-chrome|Google|Google chrome",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Chrome",
+      "subname": "Chrome",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#004D40"
+      },
+      "id": 28,
+      "name": [
+        "Work",
+        "AI",
+        "NotebookLM"
+      ],
+      "rule": {
+        "regex": "NotebookLM|notebook-lm|notebook lm",
+        "type": "regex"
+      },
+      "name_pretty": "Work>AI>NotebookLM",
+      "subname": "NotebookLM",
+      "parent": [
+        "Work",
+        "AI"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#00838F"
+      },
+      "id": 29,
+      "name": [
+        "Work",
+        "Canva"
+      ],
+      "rule": {
+        "regex": "Canva|canva",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Canva",
+      "subname": "Canva",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#4527A0"
+      },
+      "id": 30,
+      "name": [
+        "Work",
+        "Utility",
+        "Rnote"
+      ],
+      "rule": {
+        "regex": "Rnote|rnote",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Rnote",
+      "subname": "Rnote",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 31,
+      "name": [
+        "Work",
+        "Google workspace"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "Work>Google workspace",
+      "subname": "Google workspace",
+      "parent": [
+        "Work"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#C62828"
+      },
+      "id": 32,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Gmail"
+      ],
+      "rule": {
+        "regex": "Gmail|gmail",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Gmail",
+      "subname": "Gmail",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#2E7D32"
+      },
+      "id": 33,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Google spread sheet"
+      ],
+      "rule": {
+        "regex": "Google spread sheet|spread sheet|spread-sheet",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Google spread sheet",
+      "subname": "Google spread sheet",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#E65100"
+      },
+      "id": 34,
+      "name": [
+        "Work",
+        "Programming",
+        "Jupyter"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Jupyter|jupyter",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Jupyter",
+      "subname": "Jupyter",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#33691E"
+      },
+      "id": 35,
+      "name": [
+        "Work",
+        "Programming",
+        "Anaconda"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Anaconda|anaconda|conda",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Anaconda",
+      "subname": "Anaconda",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#00838F"
+      },
+      "id": 36,
+      "name": [
+        "Work",
+        "Programming",
+        "Arduino"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Arduino|arduino",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Arduino",
+      "subname": "Arduino",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 37,
+      "name": [
+        "Work",
+        "Programming",
+        "Python"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Python|python|IDLE|idle",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Python",
+      "subname": "Python",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#6A1B9A"
+      },
+      "id": 38,
+      "name": [
+        "Work",
+        "Programming",
+        "LM Studio"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "LM Studio|lm-studio|lmstudio",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>LM Studio",
+      "subname": "LM Studio",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#0277BD"
+      },
+      "id": 39,
+      "name": [
+        "Work",
+        "Programming",
+        "Positron"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Positron|positron",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Positron",
+      "subname": "Positron",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 40,
+      "name": [
+        "Work",
+        "Programming",
+        "Chromium"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Chromium|chromium",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Programming>Chromium",
+      "subname": "Chromium",
+      "parent": [
+        "Work",
+        "Programming"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 41,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Docs"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Google Docs|google docs",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Docs",
+      "subname": "Docs",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#2E7D32"
+      },
+      "id": 42,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Sheets"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Google Sheets|google sheets",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Sheets",
+      "subname": "Sheets",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#F9A825"
+      },
+      "id": 43,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Slides"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Google Slides|google slides",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Slides",
+      "subname": "Slides",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 44,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Apps Script"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Apps Script|apps script|appscript",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Apps Script",
+      "subname": "Apps Script",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#2E7D32"
+      },
+      "id": 45,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Google Drive"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Google Drive|google drive|googledrive",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Google Drive",
+      "subname": "Google Drive",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#C62828"
+      },
+      "id": 46,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Impress"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bImpress\\b",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Impress",
+      "subname": "Impress",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1B5E20"
+      },
+      "id": 47,
+      "name": [
+        "Work",
+        "Google workspace",
+        "Calc"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bCalc\\b|libreoffice.*calc",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Google workspace>Calc",
+      "subname": "Calc",
+      "parent": [
+        "Work",
+        "Google workspace"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#BF360C"
+      },
+      "id": 48,
+      "name": [
+        "Work",
+        "Utility",
+        "Apidog"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Apidog|apidog",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Apidog",
+      "subname": "Apidog",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#0277BD"
+      },
+      "id": 49,
+      "name": [
+        "Work",
+        "Utility",
+        "Syncthing"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Syncthing|syncthing",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Syncthing",
+      "subname": "Syncthing",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#B71C1C"
+      },
+      "id": 50,
+      "name": [
+        "Work",
+        "Utility",
+        "Transmission"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Transmission|transmission",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Transmission",
+      "subname": "Transmission",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#546E7A"
+      },
+      "id": 51,
+      "name": [
+        "Work",
+        "Utility",
+        "Conky"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Conky|conky",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Conky",
+      "subname": "Conky",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#AD1457"
+      },
+      "id": 52,
+      "name": [
+        "Work",
+        "Utility",
+        "PulseAudio"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "PulseAudio|pulseaudio|pavucontrol",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>PulseAudio",
+      "subname": "PulseAudio",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#37474F"
+      },
+      "id": 53,
+      "name": [
+        "Work",
+        "Utility",
+        "bottom"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bbottom\\b|\\bbtm\\b",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>bottom",
+      "subname": "bottom",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#37474F"
+      },
+      "id": 54,
+      "name": [
+        "Work",
+        "Image",
+        "Camera"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bCamera\\b",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Image>Camera",
+      "subname": "Camera",
+      "parent": [
+        "Work",
+        "Image"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#263238"
+      },
+      "id": 55,
+      "name": [
+        "Work",
+        "Image",
+        "Iriun Webcam"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Iriun|iriun",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Image>Iriun Webcam",
+      "subname": "Iriun Webcam",
+      "parent": [
+        "Work",
+        "Image"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#546E7A"
+      },
+      "id": 56,
+      "name": [
+        "Work",
+        "Image",
+        "Document Scanner"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Document Scanner|document.scanner|simple-scan",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Image>Document Scanner",
+      "subname": "Document Scanner",
+      "parent": [
+        "Work",
+        "Image"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 57,
+      "name": [
+        "School"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "School",
+      "subname": "School",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#1976D2"
+      },
+      "id": 58,
+      "name": [
+        "School",
+        "Classroom"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*Classroom|Google Classroom",
+        "type": "regex"
+      },
+      "name_pretty": "School>Classroom",
+      "subname": "Classroom",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#1565C0"
+      },
+      "id": 59,
+      "name": [
+        "School",
+        "Docs"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*Docs|#school.*docs",
+        "type": "regex"
+      },
+      "name_pretty": "School>Docs",
+      "subname": "Docs",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#2E7D32"
+      },
+      "id": 60,
+      "name": [
+        "School",
+        "Sheets"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*Sheets|#school.*sheets",
+        "type": "regex"
+      },
+      "name_pretty": "School>Sheets",
+      "subname": "Sheets",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#F9A825"
+      },
+      "id": 61,
+      "name": [
+        "School",
+        "Slides"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*Slides|#school.*slides",
+        "type": "regex"
+      },
+      "name_pretty": "School>Slides",
+      "subname": "Slides",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#004D40"
+      },
+      "id": 62,
+      "name": [
+        "School",
+        "NotebookLM"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*NotebookLM|#school.*notebook",
+        "type": "regex"
+      },
+      "name_pretty": "School>NotebookLM",
+      "subname": "NotebookLM",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#0277BD"
+      },
+      "id": 63,
+      "name": [
+        "School",
+        "Study"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "#school.*Study|#school.*study|Mana.vision",
+        "type": "regex"
+      },
+      "name_pretty": "School>Study",
+      "subname": "Study",
+      "parent": [
+        "School"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#37474F"
+      },
+      "id": 64,
+      "name": [
+        "System"
+      ],
+      "rule": {
+        "type": "none"
+      },
+      "name_pretty": "System",
+      "subname": "System",
+      "parent": null,
+      "depth": 0
+    },
+    {
+      "data": {
+        "color": "#263238"
+      },
+      "id": 65,
+      "name": [
+        "System",
+        "Terminal"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bTerminal\\b|bash|zsh|fish|konsole|xterm|alacritty",
+        "type": "regex"
+      },
+      "name_pretty": "System>Terminal",
+      "subname": "Terminal",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#455A64"
+      },
+      "id": 66,
+      "name": [
+        "System",
+        "Files"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bFiles\\b|Nautilus|nautilus|Thunar|File Roller",
+        "type": "regex"
+      },
+      "name_pretty": "System>Files",
+      "subname": "Files",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#546E7A"
+      },
+      "id": 67,
+      "name": [
+        "System",
+        "Settings"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bSettings\\b|\\bPreferences\\b|\\bTweaks\\b|gnome-control",
+        "type": "regex"
+      },
+      "name_pretty": "System>Settings",
+      "subname": "Settings",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#607D8B"
+      },
+      "id": 68,
+      "name": [
+        "System",
+        "Text Editor"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Text Editor|gedit|mousepad|xed",
+        "type": "regex"
+      },
+      "name_pretty": "System>Text Editor",
+      "subname": "Text Editor",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#546E7A"
+      },
+      "id": 69,
+      "name": [
+        "System",
+        "Monitor"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "System Monitor|GNOME System Monitor|Task Manager",
+        "type": "regex"
+      },
+      "name_pretty": "System>Monitor",
+      "subname": "Monitor",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#455A64"
+      },
+      "id": 70,
+      "name": [
+        "System",
+        "Software"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Software Updater|Ubuntu Software|gnome-software",
+        "type": "regex"
+      },
+      "name_pretty": "System>Software",
+      "subname": "Software",
+      "parent": [
+        "System"
+      ],
+      "depth": 1
+    },
+    {
+      "data": {
+        "color": "#AD1457"
+      },
+      "id": 71,
+      "name": [
+        "Media",
+        "Music",
+        "Rhythmbox"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Rhythmbox|rhythmbox",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Music>Rhythmbox",
+      "subname": "Rhythmbox",
+      "parent": [
+        "Media",
+        "Music"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#C62828"
+      },
+      "id": 72,
+      "name": [
+        "Media",
+        "Video",
+        "Videos"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "\\bVideos\\b|Totem|totem",
+        "type": "regex"
+      },
+      "name_pretty": "Media>Video>Videos",
+      "subname": "Videos",
+      "parent": [
+        "Media",
+        "Video"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#B71C1C"
+      },
+      "id": 73,
+      "name": [
+        "Comms",
+        "Email",
+        "Yandex Mail"
+      ],
+      "rule": {
+        "ignore_case": true,
+        "regex": "Яндекс|Yandex Mail|yandex",
+        "type": "regex"
+      },
+      "name_pretty": "Comms>Email>Yandex Mail",
+      "subname": "Yandex Mail",
+      "parent": [
+        "Comms",
+        "Email"
+      ],
+      "depth": 2
+    },
+    {
+      "data": {
+        "color": "#F44E3B"
+      },
+      "id": 74,
+      "name": [
+        "Work",
+        "Utility",
+        "Brave"
+      ],
+      "rule": {
+        "regex": "Brave|brave|Brave browser|brave browser|brave-browser",
+        "type": "regex"
+      },
+      "name_pretty": "Work>Utility>Brave",
+      "subname": "Brave",
+      "parent": [
+        "Work",
+        "Utility"
+      ],
+      "depth": 2
+    }
+  ]
+}
