@@ -87,6 +87,7 @@ Edit `src/config.ts`:
 - `AW_BASE_URL` - ActivityWatch API base URL
 - `OLLAMA_URL` - Ollama generate endpoint
 - `DEFAULT_MODEL` - Ollama model name
+- `OLLAMA_CPU_LIMIT_PERCENT` - CPU limit percentage for Ollama process (`0` disables, `1-100` enables, requires `cpulimit`)
 
 You can also tune minimum event duration thresholds in the same file.
 

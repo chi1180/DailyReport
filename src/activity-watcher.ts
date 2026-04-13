@@ -1,6 +1,7 @@
 import { parseArgs } from "util";
 import { readFileSync, writeFileSync } from "fs";
-import { execSync } from "child_process";
+import { execSync, spawn } from "child_process";
+import process from "node:process";
 import {
   JST_OFFSET_MS,
   AW_BASE_URL,
@@ -9,6 +10,8 @@ import {
   MIN_WEB_SEC,
   OLLAMA_URL,
   DEFAULT_MODEL,
+  MODEL_TASK_TIMEOUT,
+  OLLAMA_CPU_LIMIT_PERCENT,
 } from "./config";
 import type {
   Category,
@@ -20,6 +23,9 @@ import type {
   CategoryExport,
 } from "./types";
 import path from "node:path";
+
+let ollamaPidCache: number | null = null;
+let ollamaCpuLimitApplied = false;
 
 // ─── Category Classifier ──────────────────────────────────────────────────────
 
@@ -348,17 +354,80 @@ async function callOllama(model: string, prompt: string): Promise<string> {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model, prompt, stream: false }),
-    signal: AbortSignal.timeout(180_000),
+    signal: AbortSignal.timeout(MODEL_TASK_TIMEOUT),
   });
   if (!res.ok) throw new Error(`Ollama ${res.status}: ${await res.text()}`);
   const json = (await res.json()) as { response: string };
   return json.response;
 }
 
+function getOllamaServerPid(): number | null {
+  if (ollamaPidCache !== null) return ollamaPidCache;
+
+  try {
+    const output = execSync("pgrep -x ollama", {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+
+    const pid = output
+      .split("\n")
+      .map((line) => Number(line.trim()))
+      .find((candidate) => Number.isInteger(candidate) && candidate > 0);
+
+    if (pid) {
+      ollamaPidCache = pid;
+      return pid;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function applyOllamaCpuLimitIfNeeded(): void {
+  if (ollamaCpuLimitApplied) return;
+
+  const limit = Math.floor(OLLAMA_CPU_LIMIT_PERCENT);
+  if (limit <= 0) return;
+
+  const pid = getOllamaServerPid();
+  if (!pid) {
+    console.warn(
+      `[ollama] CPU limit ${limit}% skipped: could not find ollama process`,
+    );
+    return;
+  }
+
+  try {
+    const limiter = spawn(
+      "cpulimit",
+      ["-p", String(pid), "-l", String(limit), "-b", "-z"],
+      {
+        detached: true,
+        stdio: "ignore",
+      },
+    );
+    limiter.unref();
+    ollamaCpuLimitApplied = true;
+    console.log(
+      `[ollama] Applied CPU limit ${limit}% with cpulimit (pid ${pid})`,
+    );
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    console.warn(
+      `[ollama] CPU limit ${limit}% could not be applied. Install 'cpulimit' and ensure it is available in PATH. Details: ${reason}`,
+    );
+  }
+}
+
 export async function generateReport(
   targetDate: string,
   diaryContext: string,
 ): Promise<string> {
+  applyOllamaCpuLimitIfNeeded();
+
   // ── Load category rules ───────────────────────────────────────────────────────
   const catData: CategoryExport = JSON.parse(
     readFileSync(path.join(__dirname, "./aw-category-export.json"), "utf8"),
