@@ -1,6 +1,7 @@
 import { Obsidian } from "./src/obsidian";
 import { DIARY_DIR, REPORT_DIR } from "./src/config";
 import { generateReport } from "./src/activity-watcher";
+import { notifyFailure, writeFailureLog } from "./src/failure-notifier";
 
 async function runWithSpinner<T>(label: string, task: () => Promise<T>): Promise<T> {
   const startedAt = Date.now();
@@ -67,5 +68,10 @@ async function main() {
 main().catch((error) => {
   console.error("\n❌ DailyReport failed");
   console.error(error);
+
+  const logPath = writeFailureLog(error);
+  console.error(`📝 Failure log saved: ${logPath}`);
+  notifyFailure(logPath);
+
   process.exitCode = 1;
 });

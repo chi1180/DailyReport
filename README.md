@@ -67,6 +67,7 @@ No external cloud dependency is required for report generation.
 2. [ActivityWatch](https://activitywatch.net/) running locally
 3. [Ollama](https://ollama.com/) running locally with your target model available
 4. Obsidian vault with diary and report directories
+5. (Ubuntu desktop notification) `notify-send` via `libnotify-bin`
 
 ---
 
@@ -101,6 +102,20 @@ This project fetches these buckets using your hostname:
 
 If you use a different browser watcher, update `src/activity-watcher.ts` accordingly.
 
+### 4) Ubuntu notification dependency (for failure alerts)
+
+Install:
+
+```bash
+sudo apt install libnotify-bin
+```
+
+Optional but recommended (used when opening the log):
+
+```bash
+sudo apt install xdg-utils
+```
+
 ---
 
 ## Usage
@@ -116,6 +131,12 @@ The script will:
 1. Read today's diary note
 2. Generate today's report from ActivityWatch + Ollama
 3. Write the report to `REPORT_DIR/YYYY-MM-DD.md`
+
+If execution fails, it will:
+
+1. Save a failure log under `./logs/`
+2. Show a system notification on Linux
+3. Open the log file when you click **Open log** (if your notification daemon supports actions)
 
 ---
 
