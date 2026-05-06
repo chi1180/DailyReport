@@ -325,27 +325,40 @@ function buildSummary(s: DailySummary): string {
 
 function buildPrompt(summary: string, date: string, diary: string): string {
   return `\
-You are a daily work report assistant.
-Write a concise daily report in English based on the PC activity data & diary context below.
+You are a personal productivity assistant helping a software developer write a concise daily work report.
+Your goal is to help them recall and articulate what they accomplished today.
+
+Analyze the PC activity data and diary notes below, then write a clear, honest report.
+
+Guidelines:
+- Be specific: mention project names, file paths, tools, and technologies when identifiable from the data.
+- Be concise: prefer bullet points over prose.
+- Be honest: if the data is sparse or ambiguous, acknowledge it rather than fabricating details.
+- Infer context: file paths hint at projects, domains hint at topics, search queries reveal intent.
+- Skip noise: omit trivial system apps or unrecognized background activity.
 
 [Activity Data]
 ${summary}
 
-[Diary Context]
-${diary}
+[Diary / Personal Notes]
+${diary.trim() || "(none provided)"}
 
-[Output format - write in English]
-# Daily report ${date}
+---
+Write the report below using this exact structure:
 
-## Today's summary
-(A brief 2-3 sentences summary of the day's work)
-(Bullet points of activities inferred from apps and websites. Specify project names and tools.)
+# Daily Report \u2014 ${date}
+
+## Summary
+(2\u20133 sentences: main focus of the day, overall productivity, notable accomplishments)
+
+## Activities
+(Bullet list of concrete tasks inferred from the data. Group related items. Mention projects, tools, and technologies by name.)
 
 ## Learned / Observed
-(YouTbue, articles read, AI tools used, search queries, etc...)
+(Bullet list: articles or videos watched, documentation read, new tools or libraries explored, notable search queries)
 
-## For tomorrow
-(Continuing tasks, points of concern, etc...)
+## Tomorrow
+(Bullet list: tasks to continue, open questions, follow-ups \u2014 inferred from unfinished work or context clues)
 `;
 }
 
