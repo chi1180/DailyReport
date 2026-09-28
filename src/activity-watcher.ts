@@ -1,5 +1,4 @@
-import { parseArgs } from "util";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync } from "fs";
 import { execSync, spawn } from "child_process";
 import process from "node:process";
 import {
@@ -97,26 +96,58 @@ function getHostname(): string {
   return execSync("hostname").toString().trim();
 }
 
-async function loadFromApi(targetDate: string) {
-  const host = getHostname();
-  const ids = {
-    window: `aw-watcher-window_${host}`,
-    afk: `aw-watcher-afk_${host}`,
-    web: `aw-watcher-web-brave_${host}`,
+async function discoverAvailableBuckets(): Promise<string[]> {
+  try {
+    const res = await fetch(`${AW_BASE_URL}/buckets`);
+    if (!res.ok) return [];
+    const data = (await res.json()) as Record<string, unknown>;
+    return Object.keys(data);
+  } catch {
+    return [];
+  }
+}
+
+function findBucketsByHostname(
+  hostname: string,
+  availableBuckets: string[],
+): Record<string, string | null> {
+  // Find buckets matching the hostname
+  const findBucket = (type: string): string | null => {
+    return (
+      availableBuckets.find((b) => b.includes(`aw-watcher-${type}`) && b.includes(hostname)) ||
+      null
+    );
   };
 
-  const settled = await Promise.allSettled([
-    fetchBucketEvents(ids.window, targetDate),
-    fetchBucketEvents(ids.afk, targetDate),
-    fetchBucketEvents(ids.web, targetDate),
-  ]);
+  return {
+    window: findBucket("window"),
+    afk: findBucket("afk"),
+    web: findBucket("web"),
+  };
+}
 
-  const extract = (
-    r: PromiseSettledResult<AwEvent[]>,
-    name: string,
-  ): AwEvent[] => {
+async function loadFromApi(targetDate: string) {
+  // Discover available buckets first
+  const availableBuckets = await discoverAvailableBuckets();
+  console.log(`  Available buckets: ${availableBuckets.length > 0 ? availableBuckets.join(", ") : "none found"}`);
+
+  const host = getHostname();
+  const buckets = findBucketsByHostname(host, availableBuckets);
+
+  console.log(`  Using buckets for host "${host}":`, buckets);
+
+  // Fetch only the buckets that exist
+  const fetchPromises = [
+    buckets.window ? fetchBucketEvents(buckets.window, targetDate) : Promise.resolve([]),
+    buckets.afk ? fetchBucketEvents(buckets.afk, targetDate) : Promise.resolve([]),
+    buckets.web ? fetchBucketEvents(buckets.web, targetDate) : Promise.resolve([]),
+  ];
+
+  const settled = await Promise.allSettled(fetchPromises);
+
+  const extract = (r: PromiseSettledResult<AwEvent[]>, name: string): AwEvent[] => {
     if (r.status === "fulfilled") return r.value;
-    console.error(`  Warning: could not fetch ${name}: ${r.reason}`);
+    if (r.reason) console.error(`  Warning: could not fetch ${name}: ${r.reason}`);
     return [];
   };
 
@@ -346,10 +377,10 @@ ${diary.trim() || "(none provided)"}
 ---
 Write the report below using this exact structure:
 
-# Daily Report \u2014 ${date}
+# Daily Report — ${date}
 
 ## Summary
-(2\u20133 sentences: main focus of the day, overall productivity, notable accomplishments)
+(2–3 sentences: main focus of the day, overall productivity, notable accomplishments)
 
 ## Activities
 (Bullet list of concrete tasks inferred from the data. Group related items. Mention projects, tools, and technologies by name.)
@@ -358,7 +389,7 @@ Write the report below using this exact structure:
 (Bullet list: articles or videos watched, documentation read, new tools or libraries explored, notable search queries)
 
 ## Tomorrow
-(Bullet list: tasks to continue, open questions, follow-ups \u2014 inferred from unfinished work or context clues)
+(Bullet list: tasks to continue, open questions, follow-ups — inferred from unfinished work or context clues)
 `;
 }
 
@@ -366,7 +397,7 @@ async function callOllama(model: string, prompt: string): Promise<string> {
   const res = await fetch(OLLAMA_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model, prompt, stream: false }),
+    body: JSON.stringify({ model, prompt, stream: false, think: false }),
     signal: AbortSignal.timeout(MODEL_TASK_TIMEOUT),
   });
   if (!res.ok) throw new Error(`Ollama ${res.status}: ${await res.text()}`);
